@@ -1,0 +1,15 @@
+51) select to_char(add_months(sysdate, 12), 'dd-mm-yyyy') as date_one_year from dual;
+52) select days_between(sysdate, to_date('01-01-2026', 'dd-mm-yyyy')) as days_difference from dual;
+53) select months_between(sysdate, to_date('01-01-2026', 'dd-mm-yyyy')) as months_difference from dual;
+54) select to_char(sysdate, 'dd-mm-yyyy') as today_format from dual;
+55) select months_between(to_date('01-01-2000', 'dd-mm-yyyy'), sysdate) * 30 as age_days from dual;
+56) select months_between(to_date('01-01-2000', 'dd-mm-yyyy'), sysdate) as age_months from dual;
+57) select to_char(to_date('01-01-2000', 'dd-mm-yyyy'), 'day') as birth_day from dual;
+58) select days_in_month(sysdate) as days_remaining_year from dual;
+59) select to_char(add_months(sysdate, 48), 'dd-mm-yyyy') as date_four_years from dual;
+60) select to_char(sysdate, 'dd-mon-yyyy') as date_mon_format from dual;
+61) select to_char(sysdate, 'day, dd month yyyy') as date_day_month from dual;
+62) select to_char(sysdate, 'hh24:mi:ss') as time_24hr from dual;
+63) select sysdate as date_and_time from dual;
+64)SELECT TO_CHAR(SYSDATE,'HH24:MI:SS') FROM DUAL;
+65)SELECT TO_CHAR(SYSDATE,'DD-MM-YYYY HH24:MI:SS') FROM DUAL;
