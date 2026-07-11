@@ -1,0 +1,15 @@
+26) select abs(-125) as result from dual;
+27) select sqrt(625) as result from dual;
+28) select greatest(10, 25, 18) as result from dual;
+29) select least(10, 25, 18) as result from dual;
+30) select to_char(98.7654, 'FM999.00') as result from dual;
+31) select ceil(12.3) as result from dual;
+32) select floor(12.9) as result from dual;
+33) select to_char(sysdate, 'dd-mm-yyyy') as today from dual;
+34) select to_char(sysdate, 'dd-mm-yyyy hh24:mi:ss') as today from dual;
+35) select to_char(sysdate + 1, 'dd-mm-yyyy') as tomorrow from dual;
+36) select to_char(sysdate - 1, 'dd-mm-yyyy') as yesterday from dual;
+37) select to_char(sysdate + 100, 'dd-mm-yyyy') as date_after_100_days from dual;
+38) select to_char(sysdate - 75, 'dd-mm-yyyy') as date_before_75_days from dual;
+39) select to_char(sysdate, 'day') as day_name from dual;
+40) select to_char(sysdate, 'month') as month_name from dual;
