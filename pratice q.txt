@@ -1,0 +1,10 @@
+41) select to_char(sysdate, 'year') as year_name from dual;
+42) select to_char(sysdate, 'iw') as week_number from dual;
+43) select to_char(sysdate, 'q') as quarter_number from dual;
+44) select to_char(trunc(sysdate, 'month'), 'dd') as first_day_month from dual;
+45) select to_char(add_months(sysdate, -1), 'dd') as last_day_month from dual;
+46) select to_char(trunc(sysdate, 'year'), 'dd') as first_day_year from dual;
+47) select next_day(sysdate, 'SUNDAY') as next_sunday from dual;
+48) select next_day(sysdate, 'MONDAY') as next_monday from dual;
+49) select to_char(sysdate, 'dd-mm-yyyy') || ' ' || to_char(sysdate, 'hh:mi am') as today_datetime from dual;
+50) select to_char(add_months(sysdate, 6), 'dd-mm-yyyy') as date_six_months from dual;
