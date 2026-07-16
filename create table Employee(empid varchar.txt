@@ -1,0 +1,74 @@
+ create table Employee(empid varchar(25),empname varchar(25),dob date,salary numeric(10,3)); select * from tab;
+
+desc employee;
+
+ insert into employee values(101,'pragathi raj','20-jun-26',900000);
+
+ insert into employee values(108,'sumaya',null,80000);
+
+ drop table employee;
+
+create table Employee(empid varchar(25)primary key ,empname varchar(25),dob date,salary numeric(10,3)); 
+
+primary key constraint
+
+
+not null constraints 
+
+ create table employee1(empid varchar(25) primary  key,empname varchar(25),dob date default'20-jan-20',salary numeric(10,3)constraint sal not NULL);
+
+SQL> CREATE TABLE employee1 (
+  2      empid VARCHAR(25) PRIMARY KEY,
+  3      empname VARCHAR(25),
+  4      dob DATE DEFAULT DATE '2020-01-20',
+  5      salary NUMERIC(10,3)
+  6          CONSTRAINT sal_nn NOT NULL
+  7          CHECK (salary > 1000)
+  8  );
+insert into employee1 (empid,empname,salary) values(101,'akka',300);
+ check constraint (MCA.SYS_C0019026) violated
+
+CREATE TABLE employee1 (
+  2      empid VARCHAR2(25) PRIMARY KEY,
+  3      adharno VARCHAR2(10) CONSTRAINT unqu_uq UNIQUE,
+  4      empname VARCHAR2(25),
+  5      dob DATE DEFAULT TO_DATE('20-JAN-2020','DD-MON-YYYY'),
+  6      salary NUMBER(10,3) CONSTRAINT sal NOT NULL
+  7  );
+
+Table created.
+
+ INSERT INTO employee1
+  2  VALUES (
+  3      '101',
+  4      '10002002',
+  5      'naanu',
+  6      TO_DATE('22-JAN-2009','DD-MON-YYYY'),
+  7      20000
+  8  );
+desc all_constraints;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ OWNER                                              VARCHAR2(30)
+ CONSTRAINT_NAME                           NOT NULL VARCHAR2(30)
+ CONSTRAINT_TYPE                                    VARCHAR2(1)
+ TABLE_NAME                                NOT NULL VARCHAR2(30)
+ SEARCH_CONDITION                                   LONG
+ R_OWNER                                            VARCHAR2(30)
+ R_CONSTRAINT_NAME                                  VARCHAR2(30)
+ DELETE_RULE                                        VARCHAR2(9)
+ STATUS                                             VARCHAR2(8)
+ DEFERRABLE                                         VARCHAR2(14)
+ DEFERRED                                           VARCHAR2(9)
+ VALIDATED                                          VARCHAR2(13)
+ GENERATED                                          VARCHAR2(14)
+ BAD                                                VARCHAR2(3)
+ RELY                                               VARCHAR2(4)
+ LAST_CHANGE                                        DATE
+ INDEX_OWNER                                        VARCHAR2(30)
+ INDEX_NAME                                         VARCHAR2(30)
+ INVALID                                            VARCHAR2(7)
+
+
+MAKE CONSTRINT AND MAKE IT USE SELF
+ select constraint_name, constraint_type from all_constraints where table_name='EMPLOYEE';
