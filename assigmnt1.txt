@@ -1,0 +1,75 @@
+ create table department(
+    deptno char(5) constraints depnoconstrint primary key not null,
+    deptname varchar(20),
+    location varchar(20));
+
+ CREATE TABLE Employee(
+     EmpNo CHAR(10)CONSTRAINT empno_constraint PRIMARY KEY,
+    EmpName VARCHAR2(30),
+    DeptNo CHAR(5) CONSTRAINT fk_dept REFERENCES Department(DeptNo),
+      Mobile CHAR(12),
+     Hire_Date DATE,
+    Job VARCHAR2(20),
+       EdLevel SMALLINT,
+    Gender CHAR(1) CONSTRAINT gender_constraint  CHECK (Gender IN ('M','F')),
+   DOB DATE,
+   Salary NUMBER(10,2) CONSTRAINT salary_constraint CHECK (Salary > 0),
+   Bonus NUMBER(10,2),
+   Comm NUMBER(10,2),
+   CONSTRAINT chk_hiredate  CHECK (Hire_Date > DOB),
+   CONSTRAINT chk_empno CHECK (EmpNo LIKE 'E%')
+   );
+
+desc  employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL CHAR(10)
+ EMPNAME                                            VARCHAR2(30)
+ DEPTNO                                             CHAR(5)
+ MOBILE                                             CHAR(12)
+ HIRE_DATE                                          DATE
+ JOB                                                VARCHAR2(20)
+ EDLEVEL                                            NUMBER(38)
+ GENDER                                             CHAR(1)
+ DOB                                                DATE
+ SALARY                                             NUMBER(10,2)
+ BONUS                                              NUMBER(10,2)
+ COMM                                               NUMBER(10,2)
+
+ create table project(projno char(10) constraint proj_constraint primary key ,
+  2  projname varchar(30),
+  3   deptno char(5) constraint  dept_nocontr references department(deptno),
+  4  resemp char(10)  constraint fk_emp references employee(empno),stdate date, enddate date);
+
+Table created.
+
+SQL> desc project;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PROJNO                                    NOT NULL CHAR(10)
+ PROJNAME                                           VARCHAR2(30)
+ DEPTNO                                             CHAR(5)
+ RESEMP                                             CHAR(10)
+ STDATE                                             DATE
+ ENDDATE                                            DATE
+
+
+CREATE TABLE Emp_Proj
+(
+    ProjNo CHAR(10),
+
+    EmpNo CHAR(10),
+
+    EmpTime CHAR(10),
+
+    CONSTRAINT pkempproj
+        PRIMARY KEY(ProjNo,EmpNo),
+
+    CONSTRAINT fkproj
+        FOREIGN KEY(ProjNo)
+        REFERENCES Project(ProjNo),
+
+    CONSTRAINT fkemp
+        FOREIGN KEY(EmpNo)
+        REFERENCES Employee(EmpNo)
+);
